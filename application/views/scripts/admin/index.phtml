@@ -1,0 +1,65 @@
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl('css/home.css');  ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl('css/responsive.css');  ?>" />
+	<script type="text/javascript" src="<?php echo $this->baseUrl('tinymce/tinymce.min.js');?>"></script>
+	
+<script>		
+$(function(){
+	
+	 $('.change').click(function(){
+//		 var id = $(this).attr('id');
+//		 id = id.split('_');
+//		 id= id[1];
+//		 $('input[name=id_slide]').val(id);
+		 $('#myModalLabel').html('Home');
+		 $('.modal-body').html(  $('#form_home').html());
+ 		 $('#myModal').modal('toggle');
+ 			tinyMCE.init({
+ 				mode : "textareas",
+ 				height:100,
+ 				valid_elements : "em/i,strike,u,strong/b,div[align],br,#p[align],-ol[type|compact],-ul[type|compact],-li"
+ 			});
+ 			tinymce.execCommand('mceRemoveControl', true, 'desc');
+	 });
+	 
+});
+</script>
+	
+<div class="adminBlock">
+    <h1 class="admin_h1">HOME</h1>
+    <div class="bodyAdmin">
+    
+        <div class="bodyAdminTitle">
+            <div class="pull-left">
+            <div class="icon-align-justify"></div>
+                <span> gestion page home </span>
+            </div>
+        </div><!-- END bodyAdminTitle -->
+        <div class="bodyAdminContent">
+        
+					<div id="anchor1"></div>
+						<section id="home" class="clear"><img src="<?php echo $this->baseUrl('img/home/home.png');  ?>" alt="" /></section>
+						<div class="main-title">
+							<div class="title-container"><strong class="btn btn-primary change"> Modifier</strong>
+								<?php //<div class="welcome">Hello</div> ?>
+								<ul>
+									<li class="t-current"><?=$this->home[0]['titre'] ?></li>
+								</ul>
+								<div class="spacer"></div>
+									<div class="second-title"><?=$this->home[0]['slogan'] ?></div>
+			            <a href="#anchor2"><div class="buy-logo"><?=$this->home[0]['bouton'] ?><span></span></div></a>
+							</div>
+						</div>
+						
+				<div id="form_home">
+					<form action="<?=$this->baseUrl()?>/admin" method="post" enctype= "multipart/form-data">
+						Titre:<input type="text" name="titre" value="<?=$this->home[0]['titre'] ?>"/><br>
+						Slogan:<textarea type="text" name="slogan" /><?=$this->home[0]['slogan'] ?></textarea>
+						Bouton:<input type="text" name="bouton"  value="<?=$this->home[0]['bouton'] ?>"/> <br>
+						Inserer image:<input type="file" name="home_img" /><br>
+						<input class="submit btn btn-primary" type="submit" />
+					</form>
+				</div><!-- END form_slide -->
+
+        </div><!-- END bodyAdminContent -->
+    </div><!-- END bodyAdmin -->
+</div><!-- END adminBlock -->

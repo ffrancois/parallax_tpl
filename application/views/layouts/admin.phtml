@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl('css/admin.css');  ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl('css/jquery.dataTables.css');  ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl('css/bootstrap.css');  ?>"/>
+	<script type="text/javascript" src="<?php echo $this->baseUrl('js/jquery.min.js');?>"></script>
+	<script type="text/javascript" src="<?php echo $this->baseUrl('js/bootstrap.js');?>"></script>
+
+	<title>parallax : BackOffice</title>
+</head>
+<body>
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h5 id="myModalLabel"></h5>
+  </div><!-- END myModal -->
+  <div class="modal-body"></div>
+</div><!-- END modal-header -->
+
+<!-- HEADER -->
+<div id="header" role="banner">
+  <a href="dashboard.html" class="logo"> Batiment</a>
+	<div class="right">
+		<div class="dropdown left profile">
+    	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      	<span class="double-spacer"></span>
+        <div class="profile-username"><span>Bienvenue,</span> Administrateur </div>
+        <div class="profile-caret"> <span class="caret"></span></div>
+        <span class="double-spacer"></span>
+      </a>
+      <div class="dropdown-menu pull-right profile-box">
+      <div class="triangle-3"></div>
+				<ul class="profile-navigation">
+        	<li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+          <li><a href="#"><i class="icon-cog"></i> Settings</a></li>
+          <li><a href="#"><i class="icon-info-sign"></i> Help</a></li>
+          <li><a href="index.html"><i class="icon-off"></i> Logout</a></li>
+        </ul>
+    	</div><!-- dropdown-menu pull-right profile-box -->
+		</div><!-- END dropdown left profile -->
+    <div class="clearfix"></div>
+  </div><!-- END right -->
+</div><!-- END header -->
+
+<div id="wrap">
+	<?php /** NAVIGATION  **/?>
+	<div id="menu" role="navigation">
+  	<ul class="main-menu">
+    	<li <?=($this->activeNav == 'index')? 'class="active"': '';?>><a href="<?=$this->baseUrl().'/admin'?>"><i class="general"><img src="<?=$this->baseUrl('img/admin/home.png')?>" alt="" /></i> Accueil</a></li>
+      <li <?=($this->activeNav == 'pages')? 'class="active"': '';?>><a href="<?=$this->baseUrl().'/pages'?>"><i class="forms"> <img src="<?=$this->baseUrl('img/admin/page.png')?>" alt="" /> </i>Pages</a></li> 
+		</ul>
+          
+   <?=$this->additionalMenu?>
+	 <div class="clearfix"></div>
+	</div><!-- END menu -->
+                  
+	<?= $this->layout()->content; ?>
+</div><!-- END wrap -->
+<div class="clearfix"></div>
+<?php /**  FOOTER**/?>
+<div class="footer">
+	<div class="left">Copyright &copy; 2013</div>
+  <div class="right"><a href="#">Baildy Group</a></div>
+</div>
+<div class="clearfix"></div> 
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,208 @@
+/*-----------------------------------------------------------------------------------*/
+/*	GENERAL
+/*-----------------------------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; } body { line-height: 1; } ol, ul { list-style: none; } blockquote, q { quotes: none; } blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; } :focus { outline: 0; } ins { text-decoration: none; } del { text-decoration: line-through; } table { border-collapse: collapse; border-spacing: 0; }
+a:active, a:focus, img { outline: 0; text-decoration:none; outline:0; }
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; } .clearfix { display: block; clear:both; } /* End hide from IE Mac */ .none { display: none; } /* End Clearfix */
+.left { float:left; }
+.right { float:right; }
+html, body {margin: 0;padding: 0;font-family: "Helvetica Neue", Helvetica, Arial, serif;font-size:13px;
+	overflow-x:hidden;height:100%;min-height:100%;color:#5f5f5f;}
+table.table {margin-bottom: 10px;}
+hr.clear{clear:both;visibility:hidden}
+.adminForm label{width:200px;float:left;display:block}
+.adminForm input[type=text]{width:80%}
+.adminForm select{width:81%}
+.adminForm input[type=submit]{display:block;margin:auto}
+.adminForm textarea{width:80%;height:115px}
+.mea{position:relative;min-height:100px}
+.mea .number{color:#4D9D2A;font-size:25px}
+.dataTable .view{width:24px;cursor:pointer}
+.bodyAdmin.highlighted{display:none}
+#mea_1_filter,#mea_1_info,#mea_1_paginate,
+#mea_2_filter,#mea_2_info,#mea_2_paginate,
+#mea_3_filter,#mea_3_info,#mea_3_paginate,
+#mea_4_filter,#mea_4_info,#mea_4_paginate,
+#mea_5_filter,#mea_5_info,#mea_5_paginate{display:none}
+body h1, body h2, body h3,body h4, body h5, body h6{margin:0}
+
+/*-----------------------------------------------------------------------------------*/
+/*MODAL
+/*-----------------------------------------------------------------------------------*/
+.modal_action{float:right}
+.modal_action a{text-decoration:none}
+.submit{float:right;margin-top:10px;}
+/*-----------------------------------------------------------------------------------*/
+/*HEADER
+/*-----------------------------------------------------------------------------------*/
+#header { background-color:#45D9E7 ;color: #fff;border-bottom:1px solid #292929;height:60px;}
+.logo{display:block;	width:102px;height:23px;margin-top:19px;margin-left:20px;float:left;text-decoration:none;color:#535457;}
+.logo h1 {text-indent:-9999px;}
+/* PROFILE ***************************/
+.profile {margin-top:10px;margin-right:20px;}
+.triangle-3 {	background-image:url(../img/admin/triangle.png);background-size:14px 7px;width:14px;height:7px;margin-top:-7px;margin-left:120px;}
+.double-spacer {float:left;display:block;height:40px;border-left:1px solid #4E9A53;border-right:1px solid #1A6324;}
+.profile-username {float:left;margin-top:10px;color:#f3f3f3;margin-left:15px;}
+.profile-username span {color:#FFF;font-weight:bold}
+.profile-caret {float:left;margin-top:10px;margin-right:8px;padding-left:8px;}
+.profile-caret span.caret {border-top: 4px solid #f3f3f3;}
+
+div.profile-box {width:150px;border:1px solid #c9c9c9;background:#fff;margin-top:25px;padding:0;
+	-webkit-box-shadow: 0px 0px 18px rgba(50, 50, 50, 0.2);-moz-box-shadow:    0px 0px 18px rgba(50, 50, 50, 0.2);
+	box-shadow:         0px 0px 18px rgba(50, 50, 50, 0.2);	color:#5f5f5f;font-size:13px;}
+.profile-navigation {margin:2px 0px;padding:0;list-style:none;}
+.profile-navigation li:hover {background:#fafafa;}
+.profile-navigation li:last-child a{border:0;}
+.profile-navigation li a{color:#535457;padding:10px 0px;margin:0px 10px;display:block;border-bottom:1px solid #e0e0e0;text-decoration:none}
+.profile-navigation li a:hover{text-decoration:none;}
+.profile-navigation li a i {padding-right:10px;}
+
+table{width:100%}
+img.view{width:24px}
+/*-----------------------------------------------------------------------------------*/
+/*	WRAP
+/*-----------------------------------------------------------------------------------*/
+.adminBlock {padding:0px 300px 20px 20px; }
+#wrap {z-index: 1; 	position: relative;left: 280px;min-height:100%;background: #f1f1f1;}
+/*-----------------------------------------------------------------------------------*/
+/*	4.	Menu Styles
+/*-----------------------------------------------------------------------------------*/
+#menu-link { display:none;}
+#menu {position: absolute;overflow: hidden;top: 0;left:-280px;width: 280px; height: 100%;background: #f9f9f9 url(../img/admin/nav_left.png);
+  color:#fff;z-index:999999;}
+.main-menu {margin:0;width:70px;list-style:none;float:left;}
+.main-menu li{display:block;height:70px;border-bottom:1px solid #243235;}
+.main-menu li a{display:block;width:70px;height:70px;color:#FFF;font-size:12px;font-weight:bold;text-align:center;position:absolute;text-decoration:none}
+.main-menu li a:hover,.main-menu li.active{text-decoration:none;color:#fcfdfe;background:#293c43;}
+.main-menu li.active a {text-decoration:none;color:#fcfdfe;}
+.main-menu li a i{display:block;height:32px;margin:5px auto 4px;}
+
+/** ADDITIONAL MENU  **/
+.additional-menu {margin-left:70px;list-style:none;width:209px;}
+.additional-menu li a{display:block;height:20px;padding:10px 15px 10px 15px;color:#5f5f5f;border-bottom:1px solid #c9c9c9;
+	background: #fafafa;	font-size:13px;text-decoration:none;
+	background: -moz-linear-gradient(top, #fafafa 1%, #e9e9e9 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#fafafa), color-stop(100%,#e9e9e9));
+	background: -webkit-linear-gradient(top, #fafafa 1%,#e9e9e9 100%);
+	background: -o-linear-gradient(top, #fafafa 1%,#e9e9e9 100%);
+	background: -ms-linear-gradient(top, #fafafa 1%,#e9e9e9 100%);
+	background: linear-gradient(to bottom, #fafafa 1%,#e9e9e9 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#e9e9e9',GradientType=0 );
+}
+.additional-menu li a i{padding-right:8px;}
+.additional-menu li.active a, .additional-menu li.active a:hover {
+	-webkit-box-shadow: inset 0px 2px 5px 0px #bfbfbf;
+	box-shadow: inset 0px 2px 5px 0px #bfbfbf;
+	background: #e5e5e5;
+	background: -moz-linear-gradient(top, #e5e5e5 0%, #f5f5f5 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e5e5e5), color-stop(100%,#f5f5f5));
+	background: -webkit-linear-gradient(top, #e5e5e5 0%,#f5f5f5 100%);
+	background: -o-linear-gradient(top, #e5e5e5 0%,#f5f5f5 100%);
+	background: -ms-linear-gradient(top, #e5e5e5 0%,#f5f5f5 100%);
+	background: linear-gradient(to bottom, #e5e5e5 0%,#f5f5f5 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#f5f5f5',GradientType=0 );
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	5.	Content Elements
+/*-----------------------------------------------------------------------------------*/
+/* 5 Basic (Grids) */
+h1.admin_h1{color: #5F5F5F;font-size: 24px; text-transform: uppercase;margin:0;}
+.bodyAdmin {background:#fff;margin-top:20px;border:1px solid #c9c9c9;-webkit-border-radius: 3px;-moz-border-radius: 3px;	border-radius: 3px;margin-right:20px} 
+.half{width:47.71%;display:block;}
+.half.right{float:right}
+.grid-transparent {margin-top:40px;}
+.bodyAdminTitle {height:35px;background: #fafafa;border-bottom:1px solid #c9c9c9;
+	background: -moz-linear-gradient(top, #fafafa 0%, #e9e9e9 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafafa), color-stop(100%,#e9e9e9));
+	background: -webkit-linear-gradient(top, #fafafa 0%,#e9e9e9 100%);
+	background: -o-linear-gradient(top, #fafafa 0%,#e9e9e9 100%);
+	background: -ms-linear-gradient(top, #fafafa 0%,#e9e9e9 100%);
+	background: linear-gradient(to bottom, #fafafa 0%,#e9e9e9 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#e9e9e9',GradientType=0 );
+	overflow:hidden;-webkit-border-radius: 0px;-webkit-border-top-left-radius: 3px;-webkit-border-top-right-radius: 3px;border-top-right-radius: 3px;
+	-moz-border-radius: 0px;-moz-border-radius-topleft: 3px;-moz-border-radius-topright: 3px;border-radius: 0px;border-top-left-radius: 3px;}
+.bodyAdminTitle .pull-left .icon-title {
+	padding-right:10px;padding-left:10px;border-right:1px solid #c9c9c9;height:30px;margin-top:-2px;margin-right:8px;
+	padding-top:12px;float:left;color:#5f5f5f;}
+.bodyAdminTitle .pull-left span {color:#5f5f5f;font-size:14px;font-weight:bold;height:14px;display:block;padding-top:8px;width:215px;}
+.bodyAdminTitle .pull-right .icon-title {padding-left:10px;padding-right:10px;border-left:1px solid #c9c9c9;height:30px;margin-top:-2px;padding-top:12px;	float:left;}
+.bodyAdminTitle .pull-right .icon-title a{color:#5f5f5f;}
+.bodyAdminTitle .pull-right .icon-title a:hover {color:#3c3b3b;}
+.bodyAdminTitle .icon-align-justify{ border-right: 1px solid #C9C9C9;color: #5F5F5F;float: left;height: 30px;margin-left:10px;
+    margin-right: 8px;margin-top: -2px;padding-left: 10px;padding-top: 12px;  background-position: -336px -36px;}
+.bodyAdminContent {padding:10px;}
+.bodyAdminContent.padding-none {padding:0;}
+.overflow {overflow:hidden;}
+/* 5.m Forms ***************************/
+input[type="text"].input, input[type="password"].input, textarea.input {
+  display: inline-block; height: 20px;padding: 5px 6px; margin-bottom: 10px;font-size: 13px;line-height: 20px;
+  color: #606060;background:#fbfbfb;border-color:#dcdcdc;}
+input.input.span, textarea.input.span {display: block;width: 100%;height:30px;margin-left: 0;-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;box-sizing: border-box;}
+ textarea.span.same-height-1 {min-height:100px;}
+.formRow  { clear:both;padding-top:10px; }
+.formRow label{float:left;}
+.formRow .formRight { display: block; float: right; width: 80%; }
+.distance p{float:left;	width:25%;display:block;}
+.distance p label{margin-top:2px;float:left;}
+.width-100 {width:100%;}
+.input-valid-default input[type="checkbox"],.input-valid-default  input[type="radio"] {display:block;}
+input[type="checkbox"] {display:none;}
+input[type="checkbox"] + label {font-size:13px;}
+input[type="checkbox"] + label span {display:inline-block;width:19px;height:21px;vertical-align:middle;
+	background:url(../images/check_radio_sheet.png) -1px top no-repeat;background-size:100px 24px;cursor:pointer;}
+input[type="checkbox"]:checked + label span {background:url(../images/check_radio_sheet.png) -26px top no-repeat;background-size:100px 24px;}
+input[type="radio"] {display:none;}	
+input[type="radio"] + label {font-size:13px;}
+input[type="radio"] + label span {display:inline-block;width:19px;height:21px;margin:-1px 4px 0 0;padding-top:6px;vertical-align:middle;
+background:url(../images/check_radio_sheet.png) -53px top no-repeat;background-size:100px 24px;cursor:pointer;}
+input[type="radio"]:checked + label span {background:url(../images/check_radio_sheet.png) -78px top no-repeat;background-size:100px 24px;} 
+.text-center {text-align:center;}
+.text-center img {width:25%;}
+.text-right {text-align:right;}
+#amount, #amount2, #amount3, #amount4 {border:0;box-shadow:none;width:100px;}
+
+/*-----------------------------------------------------------------------------------*/
+/*Footer
+/*-----------------------------------------------------------------------------------*/
+
+.footer {border-top:1px solid #cacaca;padding-top:10px;}
+.footer a{color:#5f5f5f;text-decoration:none}
+
+/*-----------------------------------------------------------------------------------*/
+/*	8.	IE8 STYLE
+/*-----------------------------------------------------------------------------------*/
+@media \0screen {
+html, body {overflow-x: hidden;overflow-y: scroll;}
+.logo {	background:url(../images/ie/logo.png) no-repeat; }
+.main-menu li a i.general{	background:url(../images/ie/icon/general.png);}
+.main-menu li a i.components { background:url(../images/ie/icon/components.png); }
+.main-menu li a i.forms { background:url(../images/ie/icon/forms.png); }
+.main-menu li a i.statistics {	background:url(../images/ie/icon/statistics.png);}
+.main-menu li a i.pages {	background:url(../images/ie/icon/pages.png);}
+.main-menu li a i.tables { background:url(../images/ie/icon/tables.png);}
+.main-menu li a i.bonus {	background:url(../images/ie/icon/bonus.png);}
+.triangle-2, .triangle, .triangle-3 {	background-image:url(../images/ie/triangle.png); }
+.settings-link{	background-image:url(../images/ie/settings/6.png);}
+.settings-link.yellow {	background-image:url(../images/ie/settings/1.png);}
+.settings-link.red {	background-image:url(../images/ie/settings/2.png);}
+.settings-link.purple {	background-image:url(../images/ie/settings/3.png);}
+.settings-link.green {	background-image:url(../images/ie/settings/4.png);}
+.settings-link.blue {background-image:url(../images/ie/settings/5.png);}
+.head-button-link {	background-image:url(../images/ie/icon_message.png);}	
+.head-button-link.notification {	background-image:url(../images/ie/icon_notification.png);}
+.head-button-link.config {	background-image:url(../images/ie/icon_config.png);}
+.head-button-link.menu-hide {	background-image:url(../images/ie/icon_menu.png);}
+.note-done {	background:url(../images/ie/icon/icon_cont_check.png);}
+.no-done .note-done {	background:url(../images/ie/icon/icon_cont_close.png);}
+.p_actions a.p_delete{	background:url(../images/ie/icon/photo_delete.png);}
+.p_actions a.p_edit{	background:url(../images/ie/icon/photo_edit.png);}
+.p_actions a.p_zoom{	background:url(../images/ie/icon/photo_zoom.png);}
+.search input[type="text"], .search input[type="text"]:focus {	background:url(../images/ie/search.png) #fff right bottom no-repeat; padding-top:5px; height:30px;}
+input[type="checkbox"] + label span {background:url(../images/ie/check_radio_sheet.png) -1px top no-repeat;}
+input[type="checkbox"]:checked + label span {	background:url(../images/ie/check_radio_sheet.png) -26px top no-repeat;}
+input[type="radio"] + label span {	background:url(../images/ie/check_radio_sheet.png) -53px top no-repeat;}
+input[type="radio"]:checked + label span {	background:url(../images/ie/check_radio_sheet.png) -78px top no-repeat;} 
+}
+

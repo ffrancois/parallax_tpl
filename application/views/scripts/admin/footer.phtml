@@ -1,0 +1,127 @@
+<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl('css/footer.css');  ?>"/>
+
+<script>
+
+ $(function(){
+	 $(document).delegate( "#rubrique_1,#rubrique_2,#rubrique_3,#rubrique_4,#rubrique_5", "click", function() {
+			var num = $(this).attr('id').split('_');
+			var id = num[1];
+			$('#champs_'+id).toggle();
+	 });
+	 
+ 	$('.change_logo').click(function(){
+		$('#myModalLabel').html("Changer de logo");
+		$('.modal-body').html(  $('#change_logo').html());
+ 		$('#myModal').modal('toggle');
+ 	});
+
+ 	$('.change_rubrique').click(function(){
+		$('#myModalLabel').html("Changer rubrique");
+		$('.modal-body').html(  $('#change_rubrique').html());
+ 		$('#myModal').modal('toggle');
+ 		$('.modal-body').attr('style','padding:0');
+ 	});
+  	
+ 	$('.change_lien').click(function(){
+		$('#myModalLabel').html("Changer les liens");
+		$('.modal-body').html(  $('#change_lien').html());
+ 		$('#myModal').modal('toggle');
+ 		$('.modal-body').removeAttr('style');
+ 	});
+
+ });
+</script>
+
+
+	<div class="adminBlock">
+		<h1 class="admin_h1">footer</h1>
+		<div class="bodyAdmin">
+    
+        <div class="bodyAdminTitle">
+            <div class="pull-left">
+	            <div class="icon-align-justify"></div>
+	            <span> gestion du footer </span>
+            </div>
+        </div><!-- END bodyAdminTitle -->
+        <div class="bodyAdminContent">
+
+					<div id="footer">
+						<div class="foot">
+							<div id="logo_footer">
+			      		<strong class="btn btn-primary change_logo"> changer </strong><img src="<?=$this->baseUrl("img/logo/logo_footer.png")?>" alt="">
+							</div> <!-- END logo_footer -->
+							<div class="foot">
+								<div class="footbox">
+									<h2>Rubriques</h2>
+									<ul>
+										<?php foreach ($this->rubique_footer as $rubique_footer){
+										if ($rubique_footer['state']=="1"){?>
+											<li><a href="<?=$rubique_footer['link_rubrique']?>"><?=$rubique_footer['titre_rubrique']?></a></li>
+										<?php }
+										}?>
+											<li><strong class="btn btn-primary change_rubrique"> changer </strong></li>
+									</ul>
+								</div><!-- END footbox -->
+								
+								<div class="footbox">
+									<a href="<?=$this->baseUrl("mention_legal")?>mention-legal"><h2>Mention legal </h2></a>
+									<a href="<?=$this->baseUrl("contactus")?>"><h3>Nous Contacter</h3></a>
+								</div><!-- END footbox -->
+								
+			    			<div class="footbox">
+			      			<h2> Réseau sociaux </h2>
+			      			<ul>
+			        			<li><?php foreach ($this->social_footer as $social_footer){
+													if ($social_footer["state"]){?><a  href="<?=$social_footer["link"]?>"><img src="<?=$this->baseUrl('img/'.$social_footer['libelle'].'.png');?>" alt=""></a><?php }
+			        						}?>
+			        			</li>
+			      			</ul>
+			      			<strong class="btn btn-primary change_lien"> liens</strong>
+			    			</div><!-- END footbox -->
+			    			
+			    			<br class="clear" />
+							</div><!-- END foot -->
+						</div><!-- END foot -->
+			
+						<div id="change_logo">
+							<form action="<?=$this->baseUrl()?>/admin/footer" method="post" enctype= "multipart/form-data">
+								Inserer image:
+									<input type="file" name="logo" /><br>
+									
+									<input type="hidden" name="id_img" value="" />
+									
+									<input class="submit btn btn-primary" type="submit" />
+							</form>
+						</div><!-- END change_logo -->
+			
+						<div id="change_rubrique">
+							<div id="rubrique">
+								<form action="<?=$this->baseUrl()?>/admin/footer" method="post" >
+									<table>
+			 							<?php $i='1'; foreach ($this->rubique_footer as $rubique_footer) { ?>
+			 							<tr><td class="<?php if($i % 2 == 0){echo "success";}?>"><span class="rubrique_padding"><input type="checkbox"  name="rubrique_<?=$i?>" id="rubrique_<?=$i?>"  checked/> rubrique <?=$i?><br>
+			 							<span id="champs_<?=$i?>">Titre:<input type="text" name="titre_rubrique<?=$i?>" value="<?=$rubique_footer['titre_rubrique']?>"/>
+			 							Lien:<input type="text" name="lien_rubrique<?=$i?>" value="<?=$rubique_footer['link_rubrique']?>"/></span></span></td></tr>
+			 							<?php $i++;}?>
+			 						</table>
+			 						<input type="hidden" name="id_	rubrique" value="" />
+									<input class="submit btn btn-primary rubrique" type="submit" />
+								</form>
+							</div><!-- END rubrique -->
+						</div><!-- END change_rubrique -->
+			
+						<div id="change_lien">
+							<form action="<?=$this->baseUrl()?>/admin/footer" method="post">
+								<?php foreach ($this->social_footer as $social_footer){?>
+								<span><input type="checkbox"  name="<?=$social_footer["libelle"]?>" checked/><img src="<?=$this->baseUrl('img/'.$social_footer['libelle'].'.png');?>" alt=""> Lien :<input type="text" name="link_<?=$social_footer["libelle"]?>" value="<?=$social_footer["link"]?>"></span>
+								<?php }?>
+								<input type="hidden" name="id_form" value="2" />
+								<input class="submit btn btn-primary" type="submit" />
+							</form>
+						</div><!-- END change_lien -->
+						
+					</div><!-- END footer -->
+
+        </div><!-- END bodyAdminContent -->
+		</div><!-- END bodyAdmin -->
+	</div><!-- END adminBlock -->

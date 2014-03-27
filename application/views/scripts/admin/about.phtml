@@ -1,0 +1,116 @@
+<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl('css/about.css');  ?>"/>
+<script type="text/javascript" src="<?php echo $this->baseUrl('tinymce/tinymce.min.js');?>"></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl('css/responsive.css');  ?>" />
+
+
+ <script>
+ $(function(){
+ 	 $('.change_image').click(function(){
+		 $('#myModalLabel').html("changer d'image");
+		 $('.modal-body').html(  $('#change_image').html());
+ 		 $('#myModal').modal('toggle');
+
+ 	 });
+
+ 	 $('.change_text').click(function(){
+		 $('#myModalLabel').html("changer texte");
+		 $('.modal-body').html(  $('#change_text').html());
+ 		 $('#myModal').modal('toggle');
+			tinyMCE.init({
+	 			mode : "textareas",
+	 			height:100,
+	 			valid_elements : "em/i,strike,u,strong/b,div[align],br,#p[align],-ol[type|compact],-ul[type|compact],-li"
+	 			});
+	 		 tinymce.execCommand('mceRemoveControl', true, 'desc');
+ 	 });
+ 	 
+ });
+</script>
+
+<div class="adminBlock" style="height:800px">
+  <h1 class="admin_h1">social</h1>
+
+    
+
+        <div class="bodyAdmin half right">
+        	<div class="bodyAdminTitle">
+            <div class="pull-left">
+            	<div class="icon-align-justify"></div>
+            	<span>bloc droit</span>
+            </div>
+        	</div>
+	        <div class="bodyAdminContent">
+						<article class="content light"><strong class="btn btn-primary change_text"> Modifier</strong>
+							<div class="full">
+								<section class="half-about text">
+									<header class="title-one"><?=$this->about[0]['accroche_about'] ?></header>
+									<div class="title-two"><?=$this->about[0]['titre_about'] ?></div>
+									<div class="half-content hideme dontHide">
+										<?=$this->about[0]['description_about'] ?>
+									</div>
+								</section>
+							</div>
+						<div class="clear"></div>
+					</article>
+				</div><!-- END bodyAdminContent -->
+      </div><!-- END bodyAdmin half right -->
+
+        
+        
+			<div class="bodyAdmin half">
+        <div class="bodyAdminTitle">
+            <div class="pull-left">
+            <div class="icon-align-justify"></div>
+                <span>bloc gauche</span>
+            </div> <!-- END pull-left -->
+        </div> <!-- END bodyAdminTitle -->
+        <div class="bodyAdminContent">
+       				
+       				<article class="content light"><strong class="btn btn-primary change_image"> Modifier</strong>
+						<div class="full">
+            							<section class=" car-show-1">
+								<header class="title-one"><?=$this->about[0]['accroche_image'] ?></header>
+								<div class="title-two"><?=$this->about[0]['titre_image'] ?></div>
+								<div class="show hideme dontHide">
+									<div class="caroussel">
+										<div class="caroussel-list">
+											<div class="car-img"><img src="<?php echo $this->baseUrl('img/about/about.png');  ?>" alt="img"></div>
+										</div>
+									</div>
+								</div>
+							</section>
+							</div>
+						<div class="clear"></div>
+					</article>
+       				
+        </div> <!-- END bodyAdminContent -->
+			</div> <!-- END bodyAdmin half -->
+
+
+</div> <!-- END adminBlock -->
+				
+	
+      	<div id="change_image">
+					<form action="<?=$this->baseUrl()?>/admin/about" method="post" enctype= "multipart/form-data">
+						phrase d'accrohe :<input type="text" name="accroche_image" value="<?=$this->about[0]['accroche_image'] ?>" /><br>
+						Titre:<input type="text" name="titre_image" value="<?=$this->about[0]['titre_image'] ?>"/><br>
+						Inserer image:
+							<input type="file" name="img_about" /><br>
+							<input class="submit btn btn-primary" type="submit" />
+					</form>
+				</div><!-- END change_image -->
+
+				<div id="change_text">
+					<form action="<?=$this->baseUrl()?>/admin/about" method="post">
+						phrase d'accrohe :<input type="text" name="accroche_about" value="<?=$this->about[0]['accroche_about'] ?>" /><br>
+						Titre:<input type="text" name="titre_about" value="<?=$this->about[0]['titre_about'] ?>" /><br>
+						Description:
+							<textarea name="description_about" rows="8" cols="45" ><?=$this->about[0]['description_about'] ?></textarea><br>
+							
+							<input class="submit btn btn-primary" type="submit"/>
+					</form>
+				</div><!-- END change_text -->
+				
+    </div><!-- END bodyAdminContent -->
+ 	</div><!-- END bodyAdmin -->
+ </div><!-- END adminBlock -->

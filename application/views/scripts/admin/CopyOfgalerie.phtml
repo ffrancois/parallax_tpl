@@ -1,0 +1,129 @@
+<link rel="stylesheet" type="text/css" href="<?=$this->baseUrl('css/galerie.css');  ?>" />
+
+<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl('fancy/jquery.fancybox.css');  ?>"/>
+<script type="text/javascript" src="<?php echo $this->baseUrl('fancy/jquery.fancybox.js');?>"></script>
+
+<script>		
+$(function(){
+
+	 $('.ajouter_image').click(function(){
+		 $('#myModalLabel').html("Ajouter image");
+		 $('.modal-body').html(  $('#ajout_image').html());
+ 		 $('#myModal').modal('toggle');
+	 });
+	
+	 $('.edit').click(function(){
+		 var id = $(this).attr('id');
+		 $('input[name=img_edit]').val(id);
+		 var titre = $(this).attr('title');
+		 $('#myModalLabel').html("Changer d'image");
+		 $('.modal-body').html(  $('#edit_img').html());
+ 		 $('#myModal').modal('toggle');
+		 $('input[name=titre_edit]').val(titre);
+	 });
+
+	 $('.delete').click(function(){
+		 var id = $(this).attr('id');
+		 $('input[name=img_delete]').val(id);
+		 $('#myModalLabel').html("Supprimer");
+		 $('.modal-body').html(  $('#delete').html());
+ 		 $('#myModal').modal('toggle');
+	 });
+
+	 /** CLOSE MODAL**/
+	 $(document).delegate( ".close_modal", "click", function() {
+		 $('#myModal').modal('hide');
+	 });
+	 
+});
+
+	/*
+	 *  fancybox
+	 */
+$(document).ready(function() {
+	$('.fancybox').fancybox();
+	$(".fancybox-effects-a").fancybox({
+		helpers: {
+			title : {
+				type : 'outside'
+			},
+			overlay : {
+				speedOut : 0
+			}
+		}
+	});
+	$("#fancybox-manual-c").click(function() {
+		$.fancybox.open([{
+				href : '1_b.jpg',
+				title : 'My title'},
+				{href : '2_b.jpg',
+				title : '2nd title'},
+				{href : '3_b.jpg'}],
+				{helpers : {thumbs :
+					{width: 75,height: 50}
+			}
+		});
+	});
+
+
+});
+</script>
+
+<div class="adminBlock">
+	<h1 class="admin_h1">Accueil.</h1>
+	<div class="bodyAdmin">
+		<div class="bodyAdminTitle">
+			<div class="pull-left">
+				<div class="icon-align-justify"></div>
+				<span> Page d'accueil </span>
+			</div>
+		</div><!-- END bodyAdminTitle -->
+		<div class="bodyAdminContent">
+
+			<div id="wrapper" class="container_12 clearfix_g">
+				<h2 class="grid_12 caption clearfix_g">Galerie</h2><strong class="btn btn-primary ajouter_image"> ajouter image</strong>
+				<div class="hr dotted ">&nbsp;</div>
+				<div class="grid_9"> 
+					<?php foreach($this->galerie as $galerie){?>
+						<div class="gallery_box">
+							<img src="<?=$this->baseUrl("img/galerie/".$galerie['image']);?>"  alt=""/> 
+							<img class="delete" src="<?=$this->baseUrl('img/galerie/photo_delete.png');?>" id="<?=$galerie['id_gallery']?>" alt=""/>
+							<img class="edit" src="<?=$this->baseUrl('img/galerie/photo_edit.png');?>" id="<?=$galerie['id_gallery']?>" title="<?=$galerie['title_gallery']?>"  alt=""/>
+							<a class="fancybox" href="<?=$this->baseUrl("img/galerie/original/".$galerie['image']);?>" data-fancybox-group="gallery" title="<?=$galerie['title_gallery']?>"><img class="zoom" src="<?=$this->baseUrl('img/galerie/photo_zoom.png');?>"  alt=""/></a>
+						</div><!-- END gallery_box --> <?php 
+					}?>
+				</div><!-- END grid_9 -->
+			</div><!-- END wrapper -->
+  
+
+
+			<div id="ajout_image">
+				<form action="<?=$this->baseUrl()?>/admin/galerie" method="post" enctype= "multipart/form-data">
+					Titre:<input type="text" name="titre" />
+					Inserer image:<input type="file" name="photo" /><br>
+					<input type="hidden" name="img_name" value="<?=uniqid()?>.png" />
+					<input class="submit btn btn-primary" type="submit" />
+				</form>
+			</div><!-- END ajout_image -->
+
+			<div id="delete">
+				<div class="alert alert-error">Etes-vous sur de vouloir supprimer l'image ?  </div>
+				<form action="<?=$this->baseUrl()?>/admin/galerie" method="post" enctype= "multipart/form-data">
+					<input type="hidden" name="img_delete" value="" />
+					<button type="button" id="annuler" class=" btn btn-info close_modal">Annuler</button>
+					<input type="submit" id="supprimer" class="submit btn btn-danger" value="Supprimer"/>
+				</form>
+			</div> <!-- END delete -->
+
+			<div id="edit_img">
+				<form action="<?=$this->baseUrl()?>/admin/galerie" method="post" enctype= "multipart/form-data">
+					Titre:<input type="text" name="titre_edit" value=""/><br>
+					Inserer image:<input type="file" name="photo_edit" /><br>
+						<input type="hidden" name="img_edit" value="" />
+						<input class="submit btn btn-primary" type="submit" />
+				</form>
+			</div><!-- END edit_img -->
+    
+		</div><!-- END bodyAdminContent -->
+	</div><!-- END bodyAdmin -->
+</div><!-- END adminBlock -->

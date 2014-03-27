@@ -1,0 +1,34 @@
+/* ----------------------------------------------
+Generalise
+-------------------------------------*/
+
+.light{background: #F7F7F7; position: relative;}
+.full{position: relative;margin: auto;}
+.half-about{width: 500px;padding: 80px 55px 70px 35px; margin-left: auto;
+  margin-right: auto;width: 457px;}
+.half-about:last-child{padding: 80px 35px 120px 55px;}
+.half-about.car-show-2 {padding-bottom: 25px;}
+.half-content{color: #888888;font-size: 15px;font-family: 'Open Sans', sans-serif;line-height: 26px;}
+.half-content a{color: #4cddf3; text-decoration: none; font-weight: 400;}
+.title-one, .title-full-one{font-weight: 400;text-align: center;font-family: 'Montserrat', sans-serif;font-size: 15px;color: #d7d9da;text-transform: uppercase;}
+.title-two, .title-full-two{font-weight: 300;text-align: center;font-family: 'Open Sans', sans-serif;font-size: 28px;color: #434343;padding-bottom: 50px;margin-top: 10px;}
+.show{position: relative; width:520px;}
+.caroussel{right: -31px;width: 500px;height: 350px;overflow: hidden;position: relative;margin-left: 10px;}
+.caroussel-list{overflow: auto;}
+.car-img{float: left;width: auto;}
+.text{}
+
+
+#column{display:block;width:300px;margin:0 auto 0;}
+#column #right_section .imgholder{	display:block;width:240px;height:90px;margin:20px 0 15px 0;padding:4px;border:1px solid #CCCCCC;}
+#column #right_section{display:block;width:270px;margin-bottom:40px;font-size:12px;	font-family:'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Arial, san-serif; color:#000000;}
+
+
+
+/* ----------------------------------------------
+fomulaire
+-------------------------------------*/
+
+#change_image{display:none}
+#change_text{display:none}
+/*.btn.btn-primary.change{position:absolute}*/

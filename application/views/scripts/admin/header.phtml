@@ -1,0 +1,53 @@
+<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl('css/header.css');  ?>"/>
+
+<script>
+ $(function(){
+ 	 $('.change_logo').click(function(){
+		 $('#myModalLabel').html("changer de logo");
+		 $('.modal-body').html(  $('#change_logo').html());
+ 		 $('#myModal').modal('toggle');
+ 	 });
+
+ });
+</script>
+
+<div class="adminBlock">
+	<h1 class="admin_h1">header</h1>
+	<div class="bodyAdmin">
+		<div class="bodyAdminTitle">
+			<div class="pull-left">
+				<div class="icon-align-justify"></div>
+				<span> gestion du header </span>
+			</div>
+		</div><!-- END bodyAdminTitle -->
+		<div class="bodyAdminContent">
+
+			<div id="wrapper" class="container_12 clearfix">
+				<!-- Text Logo -->
+				<h1 id="logo" class="grid_4">		<span><strong id="_header_logo" class="btn btn-primary change_logo"> changer</strong> 
+				<img src="<?=$this->baseUrl('img/logo/header_logo.png')?>" alt="" /></span></h1>
+				<!-- Navigation Menu -->
+				<ul id="navigation" class="grid_8">
+					<li><a href="contactus"><span class="meta">Get in touch</span><br />
+							Contact Us</a></li>
+					<li><a href="portfolio"><span class="meta">Our latest work</span><br />
+							Portfolio</a></li>
+					<li><a href="about"><span class="meta">Who are we?</span><br />
+							About</a></li>
+					<li><a href="http://localhost/baildy/public/" class="current"><span class="meta">Homepage</span><br />
+							Home</a></li>
+				</ul>
+				<div class="hr grid_12">&nbsp;</div>
+				<div class="clear"></div>
+			</div><!-- END wrapper -->
+		</div><!-- END bodyAdminContent -->
+			
+		<div id="change_logo">
+			<form action="<?=$this->baseUrl()?>/admin/header" method="post" enctype= "multipart/form-data">
+				Inserer image:<input type="file" name="header_logo" /><br>
+				<input class="submit btn btn-primary" type="submit" />
+			</form>
+		</div><!-- END change_logo -->
+
+	</div><!-- END bodyAdmin -->
+</div><!-- END adminBlock -->

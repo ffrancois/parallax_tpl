@@ -1,0 +1,68 @@
+.p-category{text-decoration: none;position: relative;margin: 0 auto;z-index: 20;display: block;width: 44px;height: 44px;text-align: center;line-height: 44px;zoom: 1;
+				filter: alpha(opacity=0);opacity: 0;background: url("color/img/color-icons.png") 0 -88px no-repeat;cursor: pointer;	
+				-webkit-transition: all 0.3s ease-in-out;-moz-transition: all 0.3s ease-in-out;-o-transition: all 0.3s ease-in-out;transition: all 0.3s ease-in-out;}
+.ch-grid:hover .p-category{opacity: 1;}
+.ch-item{float: left; width: 100%; cursor: pointer;}
+.ch-item img{width: 100%;}
+.ch-grid img{opacity: 1;
+				-webkit-transition: all 0.2s ease-in-out;-moz-transition: all 0.2s ease-in-out;-o-transition: all 0.2s ease-in-out;transition: all 0.2s ease-in-out;}
+.ch-grid:hover img{opacity: 0.1;
+				-webkit-transition: all 0.2s ease-in-out;-moz-transition: all 0.2s ease-in-out;-o-transition: all 0.2s ease-in-out;transition: all 0.2s ease-in-out;}
+.ch-grid:hover div{opacity: 1;
+				-webkit-transition: all 0.5s ease-in-out;-moz-transition: all 0.5s ease-in-out;-o-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;}
+.ch-grid {overflow: hidden;background-color: #4cddf3;}
+.ch-grid div {cursor: pointer;position: absolute; width: 100%;height: 100%;left: 100%;opacity: 0;	
+				-webkit-transition: all 0.5s ease-in-out;-moz-transition: all 0.5s ease-in-out;-o-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;}
+.ch-grid div span {display: block;padding: 0 0;margin: 20% 20px;text-transform: uppercase;font-family: 'Open Sans', sans-serif;letter-spacing:1px;font-size: 16px;
+				font-weight: 400;color: #fff;text-align: center;}
+.ch-grid div span span {margin: auto;text-transform: lowercase;font-size: 16px;font-weight: 400;}
+.ch-grid div span span.p-category { margin-bottom:15px;}
+.ch-grid div span span.cat2{ color:#555; padding:0; font-size:13px; text-transform:uppercase;}
+.ch-grid{position: relative; list-style: none;}
+
+.title{font-weight: 300;text-align: center;font-family: 'Open Sans', sans-serif;}
+.title.one{color: #404141; font-size: 37px; letter-spacing: 5px; padding: 15px 0 30px; text-transform: uppercase;}
+.title.two{color: #757575; font-size: 17px; font-family: 'Open Sans', sans-serif; width: 680px; margin: 50px auto;}
+.spacer{width: 100px;height: 2px;background: #4cddf3;margin: auto;}
+
+
+/* ----------------------------------------------
+text Block
+-------------------------------------*/
+
+h2.caption 							{color:#494949; text-shadow:1px 1px 1px #cfcfcf; font-size:23px; line-height:30px;font-weight:normal; }
+.grid_12 								{display:inline;position:relative; margin-left:20px; margin-right:20px;}
+body										{background:url(../images/bg.png) repeat-x #FFFFFF; font-size:12px;	font-family:'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Arial, san-serif; color:#000000;}
+.clearfix_g:after				{clear:both; content:' '; display:block; font-size:0; line-height:0; visibility:hidden; width:0; height:0;}
+
+h2											{font-size:23px;{margin-bottom:20px;}}
+.grid_9, .grid_12 			{display: inline;float:left;margin-left:20px;margin-right:20px;position:relative;}
+.container_12 .grid_9 	{width: 1000px;}
+.dotted 								{border-style:dashed; border-left:0; border-right:0;}	
+.hr 										{-moz-border-bottom-colors: none;-moz-border-left-colors: none;-moz-border-right-colors: none;-moz-border-top-colors: none;
+   											border-color: #D6D6D6 -moz-use-text-color #F0F0F0;border-image: none;border-left: medium none;border-right: medium none;
+    										border-style: solid none;border-width: 1px medium;clear: both;font-size: 0;height: 0;line-height: 0;margin-bottom: 20px;
+    										padding: 0;width: 100%;}
+.gallery_box						{background-color:#FFF;padding:5px;border:solid 1px #000;display:inline-block; margin:5px 20px 15px 0;
+												-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;position:relative;}
+.gallery_box img				{height:180px;width:145px;z-index:1;}
+.gallery_box .zoom			{position:absolute;cursor:pointer;z-index:2;width:50px;height:50px;left:52px;top:69px;display: none}
+.gallery_box:hover .zoom{display: block}
+.gallery_box .delete		{position:absolute;cursor:pointer;z-index:2;width:20px;height:20px;right: 5px;top: 4px;display: none}
+.gallery_box:hover .delete{display: block}
+.gallery_box .edit			{position:absolute;cursor:pointer;z-index:2;width:20px;height:20px;right: 5px;top: 26px;display: none}
+.gallery_box:hover .edit{display: block}
+
+/* ----------------------------------------------
+fomulaire
+-------------------------------------*/
+
+.ajouter_image.btn-primary{float:right;margin-top:-3px}
+#annuler 								{float: right;margin-top: 10px;}
+#supprimer							{float: right; margin: 10px 5px 0 0;}
+
+#delete									{display:none;}
+#ajout_image						{display:none;}
+#edit_img								{display:none;}
+#change_text						{display:none;}
+

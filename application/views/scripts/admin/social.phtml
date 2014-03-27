@@ -1,0 +1,118 @@
+<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl('css/social.css');  ?>"/>
+<script type="text/javascript" src="<?php echo $this->baseUrl('tinymce/tinymce.min.js');?>"></script>
+
+<script>
+$(function(){
+	$('.selection_block').click(function(){
+		$('#myModalLabel').html("selection des blocks");
+		$('.modal-body').html($('#selection').html());
+		$('#myModal').modal('toggle');
+		});
+
+	$('.change_image').click(function(){
+		 $('#myModalLabel').html("changer d'image");
+		 $('.modal-body').html(  $('#change_image').html());
+		 $('#myModal').modal('toggle');
+	});
+
+	 $('.change_text').click(function(){
+		 var id = $(this).attr('id');
+		 id = id.split('_');
+		 id= id[1];
+		 $('input[name=id_about]').val(id);
+		 $('#myModalLabel').html("changer texte");
+		 $('.modal-body').html(  $('#change_text').html());
+		 $('#myModal').modal('toggle');
+			tinyMCE.init({
+	 			mode : "textareas",
+	 			height:200,
+	 			valid_elements : "em/i,strike,u,strong/b,div[align],br,#p[align],-ol[type|compact],-ul[type|compact],-li"
+	 		});
+	 		 tinymce.execCommand('mceRemoveControl', true, 'desc');
+		 });
+});
+</script>
+
+<div class="adminBlock" style="height:800px">
+  <h1 class="admin_h1">social</h1>
+	<div id="height">
+	<strong class="btn btn-primary selection_block"> selection des blocks</strong>
+	</div>
+    
+<?php 
+	$i=0;
+  foreach ($this->social as $social){
+		$actif[$i]=$social["state"];
+		$fb=$social["link"];
+		$i++;}
+		 if ($actif[1]==1) {?>
+        <div class="bodyAdmin half right">
+        	<div class="bodyAdminTitle">
+            <div class="pull-left">
+            	<div class="icon-align-justify"></div>
+            	<span>facebook</span>
+            </div>
+        	</div>
+	        <div class="bodyAdminContent">
+	        	<div id="container">
+						<span id="content"><iframe src="//www.facebook.com/plugins/likebox.php?href=<?=$fb?>&amp;width&amp;height=300&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:590px;" allowTransparency="true"></iframe></span>
+						</div><!-- END container -->
+	        </div><!-- END bodyAdminContent -->
+        </div><!-- END bodyAdmin half right -->
+<?php }
+
+		 if ($actif[0]==1) {?>
+			<div class="bodyAdmin half">
+        <div class="bodyAdminTitle">
+            <div class="pull-left">
+            <div class="icon-align-justify"></div>
+                <span>bloc texte</span>
+            </div> <!-- END pull-left -->
+        </div> <!-- END bodyAdminTitle -->
+        <div class="bodyAdminContent">
+					<div id="column">
+						<div id="right_section">
+       				<ul>
+          			<li>
+          				<?php
+          				$file_exists="../public/img/block_text/block_text_image.png";
+									$img = (file_exists($file_exists))? $this->baseUrl("img/block_text/block_text_image.png") : $this->baseUrl('img/block_text/block_text_default.png');?>
+		           		 	<h2><?=$this->block_text[0]['titre']?><strong id="" class="btn btn-primary change_text"> changer texte</strong></h2> 	
+		           		 	<div  class="imgholder"><strong class="btn btn-primary change_image">changer</strong><img src="<?=$img?>" alt="" />	</div>		
+		            		<div><?=$this->block_text[0]['description']?></div>
+		            		<p><a href="<?=$this->block_text[0]['lien']?>">Plus &raquo;</a></p>
+         		 		</li>
+        			</ul>
+    				</div> <!-- END right_section -->
+					</div> <!-- END column -->
+        </div> <!-- END bodyAdminContent -->
+			</div> <!-- END bodyAdmin half -->
+<?php }?>
+
+</div> <!-- END adminBlock -->
+
+<!-- formulaire -->
+<div id="selection">
+	<form action="<?=$this->baseUrl()?>/admin/social" method="post">
+		<span><input type="checkbox"  name="block_text" checked/><img src="../img/block_text.png"></span><br>
+		<span><input type="checkbox"  name="facebook"/><img src="../img/facebook.png"> Lien :<input type="text" name="link" value='<?=$fb;?>'></span>
+		<input type="hidden" name="id_form" value="1" />
+		<input class="submit btn btn-primary" type="submit"/>
+	</form>
+</div>
+
+<div id="change_image">
+	<form action="<?=$this->baseUrl()?>/admin/social" method="post" enctype= "multipart/form-data">
+		Inserer image:<input type="file" name="img_social" /><br>
+		<input class="submit btn btn-primary" type="submit" />
+	</form>
+</div>
+
+<div id="change_text">
+	<form action="<?=$this->baseUrl()?>/admin/social" method="post">
+		Titre:<input type="text" name="titre_block" value="<?=$this->block_text[0]['titre']?>"/><br>
+		Description:<textarea name="description_block" rows="8" cols="45"><?=$this->block_text[0]['description']?></textarea><br>
+		Lien:<input type="text" name="lien" <?=$this->block_text[0]['lien']?>/><br>
+		<input class="submit btn btn-primary" type="submit"/>
+	</form>
+</div>
